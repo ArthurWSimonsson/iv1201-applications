@@ -1,6 +1,6 @@
 const competenceDAO = require("../integration/competenceDAO");
 const CompetenceProfile = require('../models/CompetenceProfile')
-
+const ApplicationStatus = require('../models/ApplicationStatus')
 
 
 exports.getAllCompetences = async () => {
@@ -20,5 +20,24 @@ exports.getAllCompetences = async () => {
         msgBody: 'profiles.found', // profiles to show in DB
         code: 200,
         profiles: profiles
+    }
+}
+
+exports.changeApplicationStatus = async (request) => {
+    console.log('competenceController.changeApplicationStatus triggered')
+
+    let result = await competenceDAO.changeStatus(CompetenceProfile, request.id, request.status)
+
+    if (!result)
+        throw {
+            isError: true,
+            msgBody: 'error.unsuccessful',
+            code: 400
+        }
+
+    return {
+        isError: false,
+        msgBody: 'status.changed', 
+        code: 200
     }
 }
