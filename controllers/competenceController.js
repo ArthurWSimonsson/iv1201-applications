@@ -2,7 +2,13 @@ const competenceDAO = require("../integration/competenceDAO");
 const CompetenceProfile = require('../models/CompetenceProfile')
 const ApplicationStatus = require('../models/ApplicationStatus')
 
-
+/**
+ * Gets all competence profile
+ * 
+ * @returns profiles
+ * 
+ * @throws 400 if no profiles were found
+ */
 exports.getAllCompetences = async () => {
     console.log('competenceController.getAllCompetences triggered')
     const profiles = await competenceDAO.getAllEntries(CompetenceProfile)
@@ -23,8 +29,19 @@ exports.getAllCompetences = async () => {
     }
 }
 
+/**
+ * Changes status of competence profile
+ * 
+ * @param {Object} request body of request
+ *  
+ * @returns success message
+ * 
+ * @throws 400 with a bad request
+ */
 exports.changeApplicationStatus = async (request) => {
     console.log('competenceController.changeApplicationStatus triggered')
+
+    console.log(request)
 
     let result = await competenceDAO.changeStatus(CompetenceProfile, request.id, request.status)
 
