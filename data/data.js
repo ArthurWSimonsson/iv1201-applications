@@ -8,7 +8,7 @@ const CompetenceProfile = require('../models/CompetenceProfile')
  */
 module.exports = async () => {
     try {
-        await competence();
+        // await competence();
         // await status()
         // await comp()
 
