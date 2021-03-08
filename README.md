@@ -147,6 +147,55 @@ validate incoming requests.
 As stated above in this section, the back-end uses a MongoDB Cloud Atlas Database to store its persistent data.
 The database contains these tables:
 
+**(table #1) applicationstatuses**
+
+| Attribute | Data Type |
+| --- | --- |
+| \_id (Primary Key) | String |
+| name | String |
+
+
+**(table #2) acompetenceprofiles**
+
+| Attribute | Data Type |
+| --- | --- |
+| \_id (Primary Key) | String |
+| person (References table _user_) | String |
+| competence (References table _competences_) | String |
+| status (References table _applicationstatuses_) | String |
+| years of experience | String |
+
+
+**(table #3) acompetences**
+
+| Attribute | Data Type |
+| --- | --- |
+| \_id (Primary Key) | String |
+| name | String |
+
+
+**(table #4) aroles**
+
+| Attribute | Data Type |
+| --- | --- |
+| \_id (Primary Key) | String |
+| name | String |
+
+**(table #5) ausers**
+
+
+| Attribute | Data Type |
+| --- | --- |
+| \_id (Primary Key) | String |
+| reset_password | Boolean |
+| firstName | String |
+| lastName | String |
+| email | String |
+| username | String |
+| password | String |
+| role (References table _roles_) | String |
+
+
 
 No manual input or insertion of data is needed to install and run this application. 
 As long as your MongoDB Atlas account has a live Cluster that can connect to this back-end (see sections **2. Tools Required to Run and Install Application**,
