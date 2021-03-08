@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const data = require("./data/Data");
+const data = require("./data/data");
 const dbController = require("./controllers/DBController");
 const compAPI = require('./routes/appAPI')
 
