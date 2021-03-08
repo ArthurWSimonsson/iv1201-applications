@@ -41,8 +41,6 @@ exports.getAllCompetences = async () => {
 exports.changeApplicationStatus = async (request) => {
     console.log('competenceController.changeApplicationStatus triggered')
 
-    console.log(request)
-
     let result = await competenceDAO.changeStatus(CompetenceProfile, request.id, request.status)
 
     if (!result)

@@ -19,11 +19,11 @@ const compController = require('../controllers/competenceController')
  * @return 401: User is not authorized.
  * @return 500: Server error. 
  */
-router.get("/app/competences", async (req,res) => {
+router.post("/app/competences", async (req,res) => {
     try {
-        const token = req.cookies["access_token"]
+        const token = req.body.token;
         if (!token) {
-            res.status(200).json({
+            res.status(400).json({
                 serverMessage: {
                     isError: true,
                     msgBody: "login.false",
@@ -94,7 +94,7 @@ router.post('/app/changestatus', async (req, res) => {
     console.log(" POST /app/changestatus");
     console.log(req.body)
     try {
-        const token = req.cookies["access_token"]
+        const token = req.body.token;
         if (!token) {
             res.status(200).json({
                 serverMessage: {
@@ -110,7 +110,7 @@ router.post('/app/changestatus', async (req, res) => {
             if (decoded.role != 'recruiter') {
                 res.status(401).json({
                     serverMessage: {
-                        isError: false,
+                        isError: true,
                         msgBody: 'access.unauthorized',
                         code: 401
                     }
