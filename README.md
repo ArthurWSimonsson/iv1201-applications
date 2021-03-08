@@ -1,4 +1,4 @@
-# IMPORTANT
+# IMPORTANT (READ FIRST)
 
 1. Download and install the authentication back-end for this application **before** finishing this tutorial.
   The authentication back-end and its documentation can be found here:
