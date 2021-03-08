@@ -6,10 +6,11 @@ const data = require("./data/data");
 const dbController = require("./controllers/dbController");
 const compAPI = require('./routes/appAPI')
 
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
+
 
 
 app.use('/', compAPI)

@@ -25,7 +25,7 @@ router.get("/app/competences", async (req,res) => {
         if (!token) {
             res.status(400).json({
                 serverMessage: {
-                    isError: false,
+                    isError: true,
                     msgBody: "login.false",
                     code: 400
                 }
