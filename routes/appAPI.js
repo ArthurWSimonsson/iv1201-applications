@@ -23,7 +23,7 @@ router.get("/app/competences", async (req,res) => {
     try {
         const token = req.cookies["access_token"]
         if (!token) {
-            res.status(400).json({
+            res.status(200).json({
                 serverMessage: {
                     isError: true,
                     msgBody: "login.false",
@@ -96,7 +96,7 @@ router.post('/app/changestatus', async (req, res) => {
     try {
         const token = req.cookies["access_token"]
         if (!token) {
-            res.status(400).json({
+            res.status(200).json({
                 serverMessage: {
                     isError: false,
                     msgBody: "login.false",
