@@ -3,7 +3,7 @@ const app = express()
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const data = require("./data/data");
-const dbController = require("./controllers/DBController");
+const dbController = require("./controllers/dbController");
 const compAPI = require('./routes/appAPI')
 
 app.use(express.urlencoded({ extended: false }));
