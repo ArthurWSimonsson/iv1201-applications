@@ -5,11 +5,11 @@ const ApplicationStatus = require('../models/ApplicationStatus')
 
 /**
  * Private function for adding new competence profiles.
- * @param {*} mongoDatabase Mongo schema object
- * @param {*} personId PersonID to be added
- * @param {*} competenceId CompetenceID to be added
- * @param {*} status StatusID to be added
- * @param {*} years Amount of years
+ * @param {Object} mongoDatabase Mongo schema object
+ * @param {String} personId PersonID to be added
+ * @param {String} competenceId CompetenceID to be added
+ * @param {String} status StatusID to be added
+ * @param {String} years Amount of years
  */
 exports.addNewCompetenceProfile = async (mongoDatabase, personId, competenceId, status, years) => {
     return await new mongoDatabase(
@@ -23,8 +23,8 @@ exports.addNewCompetenceProfile = async (mongoDatabase, personId, competenceId, 
 }
 /**
  * Private function for adding new statuses.
- * @param {*} mongoDatabase Mongo schema object
- * @param {*} name Name of status
+ * @param {Object} mongoDatabase Mongo schema object
+ * @param {String} name Name of status
  */
 exports.addNewStatus = async(mongoDatabase, name) => {
     return await new mongoDatabase(
@@ -36,8 +36,8 @@ exports.addNewStatus = async(mongoDatabase, name) => {
 
 /**
  * Private function for adding new competences.
- * @param {*} mongoDatabase Mongo schema object
- * @param {*} name Name of competence
+ * @param {Object} mongoDatabase Mongo schema object
+ * @param {String} name Name of competence
  */
 exports.addNewCompetence = async(mongoDatabase, name) => {
     return await new mongoDatabase(
@@ -49,7 +49,7 @@ exports.addNewCompetence = async(mongoDatabase, name) => {
 
 /**
  * Get all entries of competence profiles, populates with data from other collections.
- * @param {*} mongoDatabase Mongo schema object
+ * @param {Object} mongoDatabase Mongo schema object
  */
 exports.getAllEntries = async(mongoDatabase) => {
 
@@ -67,7 +67,7 @@ exports.getAllEntries = async(mongoDatabase) => {
 
 /**
  * Gets status id based on query name
- * @param {object} mongoDatabase Mongo schema object
+ * @param {Object} mongoDatabase Mongo schema object
  * @param {String} name Name of status
  */
 exports.getStatusIdbyName = async(mongoDatabase, name) => {
@@ -77,9 +77,9 @@ exports.getStatusIdbyName = async(mongoDatabase, name) => {
 
 /**
  * Change status of a competence profile.
- * @param {} mongoDatabase Mongo schema object
- * @param {*} competenceProfileId Id of competence profile
- * @param {*} status New status of competence profile
+ * @param {Object} mongoDatabase Mongo schema object
+ * @param {String} competenceProfileId Id of competence profile
+ * @param {String} status New status of competence profile
  */
 exports.changeStatus = async(mongoDatabase, competenceProfileId, status) => {
     console.log('competenceDAO.changeStatus triggered')
